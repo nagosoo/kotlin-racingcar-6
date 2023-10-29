@@ -13,8 +13,11 @@ data class Car(
         get() = _forwardCnt
 
     fun moveForward() {
-        val enableMove = Randoms.pickNumberInRange(0, 9) >= 4
-        if (enableMove) _forwardCnt += 1
-        println("$name : ${GameConst.FORWARD_STRING.repeat(_forwardCnt)}")
+        val canMove = Randoms.pickNumberInRange(0, 9) >= 4
+        if (canMove) _forwardCnt += 1
+    }
+
+    fun getCarPosition(): String {
+        return ("$name : ${GameConst.FORWARD_STRING.repeat(_forwardCnt)}")
     }
 }
